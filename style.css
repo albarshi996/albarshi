@@ -32,7 +32,6 @@ html {
 
 /* ==================== الحركات الأساسية ==================== */
 
-/* حركة الظهور من الأسفل */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -44,7 +43,6 @@ html {
   }
 }
 
-/* حركة الانزلاق من الأعلى */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -56,43 +54,36 @@ html {
   }
 }
 
-/* حركة النبض */
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }
 }
 
-/* حركة الارتداد */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
 }
 
-/* حركة الدوران */
 @keyframes rotating {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-/* حركة التوهج */
 @keyframes glow {
   0%, 100% { box-shadow: 0 0 5px rgba(26, 95, 180, 0.5); }
   50% { box-shadow: 0 0 20px rgba(26, 95, 180, 0.9); }
 }
 
-/* حركة التلميع */
 @keyframes shine {
   0% { left: -100%; }
   100% { left: 100%; }
 }
 
-/* حركة الكتابة */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
 }
 
-/* حركة الطفو */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
@@ -142,10 +133,10 @@ html {
   animation: float 3s ease-in-out infinite;
 }
 
-/* ==================== قائمة التنقل ==================== */
+/* ==================== قائمة التنقل - محسّنة للموبايل ==================== */
 nav {
   background: var(--primary);
-  padding: 1rem 2rem;
+  padding: 0.8rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,16 +145,20 @@ nav {
   top: 0;
   z-index: 999;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 900;
   color: var(--white);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
+  flex: 1;
+  min-width: 100px;
 }
 
 .logo i {
@@ -174,30 +169,35 @@ nav {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
 .nav-links a {
   color: var(--white);
   text-decoration: none;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
   transition: all 0.3s ease;
   font-weight: 600;
+  font-size: 0.9rem;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
   background: var(--secondary);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
   bottom: 0;
-  right: 1rem;
+  right: 0.7rem;
   width: 0;
   height: 2px;
   background: var(--accent);
@@ -205,76 +205,89 @@ nav {
 }
 
 .nav-links a:hover::after {
-  width: calc(100% - 2rem);
+  width: calc(100% - 1.4rem);
 }
 
-/* ==================== الصفحة الرئيسية ==================== */
+/* ==================== الصفحة الرئيسية - محسّنة للموبايل ==================== */
 .hero {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--secondary) 100%);
   color: var(--white);
-  padding: 4rem 2rem;
+  padding: 2rem 1rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
   align-items: center;
-  min-height: 600px;
+  min-height: auto;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 1.8rem;
   margin-bottom: 1rem;
   line-height: 1.2;
+  word-break: break-word;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 0.8rem;
   opacity: 0.95;
+  line-height: 1.5;
 }
 
 .cta-btn {
   display: inline-block;
   background: var(--accent);
   color: var(--white);
-  padding: 1rem 2.5rem;
-  border-radius: 30px;
+  padding: 0.9rem 1.8rem;
+  border-radius: 25px;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   transition: all 0.3s ease;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+  display: block;
+  text-align: center;
+  width: 100%;
+  max-width: 250px;
 }
 
 .cta-btn:hover {
   background: #c0392b;
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+}
+
+.cta-btn:active {
+  transform: translateY(-1px);
 }
 
 .hero-illustration {
   position: relative;
-  height: 400px;
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .floating-card {
-  position: absolute;
+  position: relative;
   background: var(--white);
   color: var(--primary);
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   text-align: center;
   animation: float 3s ease-in-out infinite;
-  width: 130px;
+  width: 90px;
+  font-size: 0.85rem;
 }
 
 .floating-card i {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
 }
 
 .floating-card p {
@@ -283,52 +296,53 @@ nav {
 }
 
 .floating-card:nth-child(1) {
-  top: 0;
-  left: 20%;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
 }
 
 .floating-card:nth-child(2) {
-  top: 50%;
-  left: 50%;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
   animation-delay: 0.5s;
 }
 
 .floating-card:nth-child(3) {
-  top: 30%;
-  right: 10%;
+  position: relative !important;
+  top: 0 !important;
+  right: 0 !important;
   animation-delay: 1s;
 }
 
 /* ==================== قسم الخدمات المختصر ==================== */
 .services-preview {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 3rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  padding: 2rem 1rem;
   background: var(--white);
 }
 
 .service-item {
   text-align: center;
-  padding: 2rem;
-  border-radius: 15px;
+  padding: 1.5rem;
+  border-radius: 12px;
   background: linear-gradient(135deg, #f8f9fa 0%, #ecf0f1 100%);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .service-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: var(--white);
 }
 
 .service-item i {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
   color: var(--primary);
   transition: all 0.3s ease;
 }
@@ -339,54 +353,57 @@ nav {
 }
 
 .service-item h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.service-item p {
+  font-size: 0.95rem;
 }
 
 /* ==================== صفحة الميزات ==================== */
 .features-section {
-  padding: 3rem 2rem;
+  padding: 2rem 1rem;
   text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .features-section h2 {
   color: var(--primary);
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  word-break: break-word;
 }
 
 .section-intro {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--gray);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
 }
 
 .feature-card {
   background: var(--white);
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   position: relative;
 }
 
 .feature-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .feature-card i {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   transition: all 0.3s ease;
 }
 
@@ -397,28 +414,28 @@ nav {
 
 .feature-card h3 {
   color: var(--dark);
-  margin-bottom: 0.8rem;
-  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
 }
 
 .feature-card p {
   color: var(--gray);
-  line-height: 1.7;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
-/* الميزة المميزة */
 .highlight-card {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: var(--white);
   position: relative;
   overflow: hidden;
   border: 2px solid var(--accent);
-  transform: scale(1.05);
+  transform: scale(1);
 }
 
 .highlight-card i {
   color: var(--accent);
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .highlight-card h3,
@@ -443,61 +460,71 @@ nav {
 
 /* ==================== صفحة كيف يعمل ==================== */
 .how-it-works-section {
-  padding: 3rem 2rem;
+  padding: 2rem 1rem;
   text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .how-it-works-section h2 {
   color: var(--primary);
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  word-break: break-word;
 }
 
 .special-step {
   background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
-  padding: 2.5rem;
-  border-radius: 15px;
-  margin: 2rem 0 3rem 0;
-  border-left: 5px solid var(--secondary);
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  margin: 1.5rem 0 2rem 0;
+  border-left: 4px solid var(--secondary);
+  word-break: break-word;
 }
 
 .search-animation {
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .search-animation i {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--secondary);
+}
+
+.special-step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.special-step p {
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .steps-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
 }
 
 .step-card {
   background: var(--white);
-  padding: 2.5rem 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   position: relative;
 }
 
 .step-card:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .step-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   transition: all 0.3s ease;
 }
 
@@ -512,112 +539,122 @@ nav {
   right: 1rem;
   background: var(--secondary);
   color: var(--white);
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  font-size: 1.3rem;
-  box-shadow: 0 4px 10px rgba(35, 155, 86, 0.3);
+  font-size: 1.1rem;
+  box-shadow: 0 3px 8px rgba(35, 155, 86, 0.3);
 }
 
 .step-card h3 {
   color: var(--dark);
-  margin-bottom: 0.8rem;
-  margin-top: 1rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
 }
 
 .step-card p {
   color: var(--gray);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
 /* ==================== صفحة الطلب ==================== */
 .request-section {
-  padding: 3rem 2rem;
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 2rem 1rem;
+  max-width: 100%;
 }
 
 .request-section h2 {
   color: var(--primary);
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   text-align: center;
   margin-bottom: 0.5rem;
+  word-break: break-word;
 }
 
 .form-container {
   background: var(--white);
-  padding: 2.5rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .request-form {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .form-group label {
   display: block;
   color: var(--dark);
   font-weight: 700;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
 }
 
 .form-group label i {
   color: var(--primary);
-  margin-left: 0.5rem;
+  margin-left: 0.4rem;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.9rem 1.2rem;
+  padding: 0.8rem;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-family: 'Tajawal', Arial, sans-serif;
   font-size: 1rem;
   transition: all 0.3s ease;
   color: var(--dark);
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 10px rgba(26, 95, 180, 0.2);
+  box-shadow: 0 0 8px rgba(26, 95, 180, 0.15);
 }
 
 .form-group textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .submit-btn {
   width: 100%;
   background: linear-gradient(135deg, var(--secondary), #239b56);
   color: var(--white);
-  padding: 1rem;
+  padding: 0.9rem;
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(35, 155, 86, 0.3);
+  box-shadow: 0 4px 12px rgba(35, 155, 86, 0.3);
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .submit-btn:hover {
   background: linear-gradient(135deg, #1e8449, #16a085);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(35, 155, 86, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(35, 155, 86, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
 }
 
 .submit-btn i {
@@ -626,24 +663,25 @@ nav {
 
 .direct-contact {
   text-align: center;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   border-top: 2px solid #e0e0e0;
+  margin-top: 1.5rem;
 }
 
 .direct-contact h3 {
   color: var(--dark);
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .contact-buttons {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
 }
 
 .contact-btn {
-  padding: 1rem;
+  padding: 0.8rem 0.5rem;
   border-radius: 8px;
   text-decoration: none;
   color: var(--white);
@@ -652,13 +690,19 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
   cursor: pointer;
+  font-size: 0.9rem;
+  flex-direction: column;
 }
 
 .contact-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-btn:active {
+  transform: scale(0.98);
 }
 
 .contact-btn.whatsapp {
@@ -677,9 +721,13 @@ nav {
   background: #7f8c8d;
 }
 
+.contact-btn i {
+  font-size: 1.2rem;
+}
+
 /* ==================== صفحة التواصل ==================== */
 .contact-page {
-  padding: 3rem 2rem;
+  padding: 2rem 1rem;
   min-height: calc(100vh - 200px);
   display: flex;
   align-items: center;
@@ -688,44 +736,45 @@ nav {
 
 .contact-container {
   text-align: center;
-  max-width: 800px;
+  max-width: 100%;
 }
 
 .contact-container h2 {
   color: var(--primary);
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  word-break: break-word;
 }
 
 .contact-info {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
 }
 
 .contact-item {
   background: var(--white);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
 .contact-item:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 .contact-icon {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem auto;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: var(--white);
 }
 
@@ -736,8 +785,8 @@ nav {
 
 .contact-item h3 {
   color: var(--dark);
-  margin-bottom: 0.8rem;
-  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.1rem;
 }
 
 .contact-item a {
@@ -746,11 +795,13 @@ nav {
   font-weight: 700;
   transition: all 0.3s ease;
   display: block;
+  font-size: 0.95rem;
+  word-break: break-all;
 }
 
 .contact-item a:hover {
   color: var(--secondary);
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* ==================== التذييل ==================== */
@@ -758,27 +809,30 @@ footer {
   background: var(--dark);
   color: var(--white);
   text-align: center;
-  padding: 2rem;
-  margin-top: 3rem;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
 }
 
 footer p {
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  word-break: break-word;
+  line-height: 1.4;
 }
 
 .social-links {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .social-links a {
   color: var(--white);
-  font-size: 1.5rem;
-  width: 45px;
-  height: 45px;
+  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--primary);
   display: flex;
@@ -789,135 +843,169 @@ footer p {
 
 .social-links a:hover {
   background: var(--secondary);
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* ==================== استجابة الموبايل ==================== */
-@media (max-width: 1024px) {
+.social-links a:active {
+  transform: translateY(-1px);
+}
+
+/* ==================== Media Queries للهواتف الصغيرة جداً ==================== */
+@media (max-width: 400px) {
+  nav {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .cta-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .services-preview {
+    gap: 1rem;
+    padding: 1.5rem 0.8rem;
+  }
+
+  .features-section,
+  .how-it-works-section,
+  .request-section {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .features-section h2,
+  .how-it-works-section h2,
+  .request-section h2,
+  .contact-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-intro {
+    font-size: 0.9rem;
+  }
+
+  .form-container {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .contact-buttons {
+    gap: 0.6rem;
+  }
+
+  footer {
+    padding: 1rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .social-links {
+    gap: 0.6rem;
+  }
+
+  .social-links a {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+}
+
+/* ==================== Tablets ==================== */
+@media (min-width: 768px) and (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
+    padding: 3rem 2rem;
   }
 
   .hero-content h1 {
     font-size: 2.2rem;
   }
 
-  .hero-illustration {
-    height: 300px;
-  }
-}
-
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
+  .features-grid,
+  .steps-container,
+  .contact-info {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .nav-links {
-    flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.2rem;
   }
 
   .nav-links a {
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.95rem;
   }
+}
 
-  .logo {
-    font-size: 1.4rem;
-  }
-
+/* ==================== Desktop - الشاشات الكبيرة ==================== */
+@media (min-width: 1025px) {
   .hero {
-    padding: 2rem 1rem;
-    min-height: 500px;
+    grid-template-columns: 1fr 1fr;
+    padding: 4rem 2rem;
+    min-height: 600px;
   }
 
   .hero-content h1 {
-    font-size: 1.8rem;
+    font-size: 3rem;
   }
 
-  .hero-content p {
-    font-size: 1rem;
+  .nav-links {
+    gap: 2rem;
   }
 
   .features-grid,
   .steps-container,
-  .contact-info,
-  .services-preview {
-    grid-template-columns: 1fr;
+  .contact-info {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
-  .feature-card,
-  .step-card {
-    margin-bottom: 1rem;
-  }
-
-  .section-intro {
-    font-size: 1rem;
-  }
-
-  .typing-effect {
-    font-size: 1.5rem;
-  }
-
-  .contact-buttons {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .highlight-card {
-    transform: scale(1);
-  }
-}
-
-@media (max-width: 480px) {
-  nav {
-    padding: 0.5rem;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  .hero {
-    padding: 1.5rem 1rem;
-    min-height: 400px;
-  }
-
-  .hero-content h1 {
-    font-size: 1.5rem;
-  }
-
-  .cta-btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.95rem;
-  }
-
-  .form-container {
-    padding: 1.5rem;
-  }
-
-  .contact-buttons {
-    grid-template-columns: 1fr;
-  }
-
-  .features-section h2,
-  .request-section h2,
-  .contact-container h2 {
-    font-size: 1.8rem;
-  }
-
-  footer {
-    padding: 1rem;
-    font-size: 0.9rem;
+  .hero-illustration {
+    height: 400px;
   }
 
   .floating-card {
-    width: 100px;
-    padding: 1rem;
+    position: absolute;
+    width: 130px;
   }
 
-  .floating-card i {
-    font-size: 2rem;
+  .floating-card:nth-child(1) {
+    top: 0;
+    left: 20%;
+    position: absolute !important;
+  }
+
+  .floating-card:nth-child(2) {
+    top: 50%;
+    left: 50%;
+    position: absolute !important;
+  }
+
+  .floating-card:nth-child(3) {
+    top: 30%;
+    right: 10%;
+    position: absolute !important;
   }
 }
